@@ -153,43 +153,6 @@ nav a:hover {
   margin-bottom: 4rem;
 }
 
-.drink {
-  padding: 2rem;
-}
-
-.drink__product {
-  display: flex;
-}
-
-.drink__cup {
-  width: 9rem;
-  height: 9rem;
-}
-
-.drink__cup img {
-  width: 9rem;
-  height: 9rem;
-}
-
-.drink__cup--selected {
-  background-image: url("./img/cup-selected.png");
-  background-size: contain;
-}
-
-.drink__cup--selected img {
-  display: none;
-}
-
-.drink__info {
-  margin-left: 1rem;
-}
-
-.drink__controls {
-  margin-top: 1rem;
-
-  text-align: center;
-}
-
 .order-btn {
   padding: 0.5rem 1rem;
 
@@ -213,27 +176,6 @@ nav a:hover {
 
 .order-btn:active {
   background-color: #e67e51;
-}
-
-.layer {
-  display: flex;
-  padding: 0.25rem;
-}
-
-.layer__color {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
-  border-radius: 0.5rem;
-
-  background-color: brown;
-  box-shadow: 0 0 5px #333;
-}
-
-.layer__label {
-  height: 1rem;
-
-  line-height: 1rem;
 }
 
 .gallery {
