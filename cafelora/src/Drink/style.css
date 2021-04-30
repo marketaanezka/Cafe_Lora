@@ -1,5 +1,10 @@
 .drink {
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0.5rem;
+  width: 100%;
 }
 
 .drink__product {
