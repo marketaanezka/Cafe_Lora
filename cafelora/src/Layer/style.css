@@ -4,6 +4,7 @@
 }
 
 .layer__color {
+  flex: 0 0 1rem;
   width: 1rem;
   height: 1rem;
   margin-right: 0.5rem;
@@ -14,7 +15,5 @@
 }
 
 .layer__label {
-  height: 1rem;
-
   line-height: 1rem;
 }

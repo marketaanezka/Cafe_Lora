@@ -1,5 +1,5 @@
-import './style.css';
 import Drink from './Drink/index'
+import './style.css';
 
 console.log('funguju!');
 
