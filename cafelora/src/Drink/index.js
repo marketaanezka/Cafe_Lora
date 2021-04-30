@@ -4,54 +4,37 @@ import './style.css'
 const Drink = (props) => {
   const drinkElm = document.createElement('div');
   drinkElm.classList.add('drink');
-  // produkt
-  const drinkProduct = document.createElement('div');
-  drinkProduct.classList.add('drink__product');
-  drinkElm.appendChild(drinkProduct);
+  drinkElm.innerHTML = `
+    <div class="drink__product">
+      <div class="drink__cup">
+        <img src="/assets/cups/${props.id}.png" />
+      </div>
+      <div class="drink__info">
+        <h3>${props.name}</h3>
+      </div>
+    </div>
+    <div class="drink__controls">
+      <button class="order-btn">Objednat</button>
+    </div>
+  `;
+  
+  const drinkInfoElm = drinkElm.querySelector('.drink__info');
+  props.layers.forEach((layer) => drinkInfoElm.innerHTML += Layer(layer));
 
-  const drinkCup = document.createElement('div');
-  drinkCup.classList.add('drink__cup');
-  drinkProduct.appendChild(drinkCup);
-
-  const img = document.createElement('img');
-  img.src = `/assets/cups/${props.id}.png`;
-  drinkCup.appendChild(img);
-
-  const drinkInfo = document.createElement('div');
-  drinkInfo.classList.add('drink__info');
-  drinkProduct.appendChild(drinkInfo);
-
-  const drinkInfoH3 = document.createElement('h3')
-  drinkInfoH3.textContent = props.name;
-  drinkInfo.appendChild(drinkInfoH3);
-
-  props.layers.forEach(layer => drinkInfo.innerHTML += Layer(layer));
-
-  const drinkControls = document.createElement('div');
-  drinkControls.classList.add('drink__controls');
-
-  const orderBtn = document.createElement('button');
-  orderBtn.classList.add('order-btn');
-  orderBtn.textContent = 'Objednat';
-
+  const orderBtn = drinkElm.querySelector('.order-btn');
   orderBtn.addEventListener('click', () => {
-    if (props.ordered === false) {
-      drinkCup.classList.add('drink__cup--selected');
-      orderBtn.textContent = 'Zrušit';
-      props.ordered = true;
-    } else {
-      drinkCup.classList.remove('drink__cup--selected');
-      orderBtn.textContent = 'Objednat';
-      props.ordered = false;
-    }
-    // řešení Filipa Jirsáka
-    // props.ordered = !props.ordered;
-    // drinkCup.classList.toggle('drink__cup--selected', props.ordered);
-    // orderBtn.textContent = props.ordered ? 'Zrušit' : 'Objednat'
-  });
+    const drinkCupElm = drinkElm.querySelector('.drink__cup');
 
-  drinkControls.appendChild(orderBtn);
-  drinkElm.appendChild(drinkControls);
+    if (props.ordered) {
+      drinkCupElm.classList.remove('drink__cup--selected');
+      orderBtn.textContent = 'Objednat';
+    } else {
+      drinkCupElm.classList.add('drink__cup--selected');
+      orderBtn.textContent = 'Zrušit';
+    }
+
+    props.ordered = !props.ordered;
+  });
 
   return drinkElm;
 }
